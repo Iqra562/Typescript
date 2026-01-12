@@ -1,1 +1,18 @@
 
+Typescript allows to write js in more precise manners so there errors are less
+
+Typescript is all about type safety
+
+
+
+
+#### ---------------------------------------------------------------------------------------
+
+
+What does <T> mean?
+T is a generic type.
+
+Think of it like:
+
+“I don’t know yet what type of data I’ll fetch — you’ll tell me later.”
+“A placeholder for a real type that will be decided later.”
