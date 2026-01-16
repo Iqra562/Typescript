@@ -16,3 +16,51 @@ Think of it like:
 
 “I don’t know yet what type of data I’ll fetch — you’ll tell me later.”
 “A placeholder for a real type that will be decided later.”
+Why <T> is correct here
+
+the hook is generic:
+
+export function useFetch<T>(url: string): FetchState<T>
+
+
+This hook:
+
+Fetches data from any API
+
+Does not know what shape the data will be
+
+But expects the caller to define it
+
+So <T> means:
+
+“I don’t know the data shape, but you must tell me.”
+
+Who defines the structure then?
+The caller does ✅
+interface User {
+  id: number;
+  name: string;
+}
+
+const { data, loading, error } = useFetch<User>(
+  "/api/users/1"
+);
+
+
+Now TypeScript knows:
+
+data: User | null
+
+
+🎯 Structure is still defined — just not inside the hook
+
+
+## ------------------------------------------------------------------------------------------
+In TypeScript, you should define structure for both sending and receiving data.
+
+
+## -------------------------------------------------------------------------------------------
+npm i some-lib
+npm i -D @types/some-lib
+
+you can install dependencies type by using this command if dependency dont have type
