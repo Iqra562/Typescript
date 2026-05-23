@@ -1,0 +1,22 @@
+Zod Schema  →  Validation rules
+z.infer     →  Creates TypeScript type from those rules
+
+
+
+
+// Base schema  ( what the API returns)
+export const ProductResponseSchema = z.object({
+    _id: z.string(),
+    name: z.string(),
+    thumbnail: z.string().url(),
+    description: z.string(),
+    price: z.number().positive(),
+  })
+
+
+// Infer typescript types from schemas
+// using z.infer to automatically create TypeScript types from  Zod schemas.
+
+export type ProductResponse =z.infer<typeof ProductResponseSchema>;
+
+
